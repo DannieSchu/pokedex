@@ -1,21 +1,28 @@
 import React, { Component } from 'react';
+import request from 'superagent';
 import Header from './Header';
 import PokeList from './PokeList';
-import mockData from './data';
 import './App.css';
 import './index.css';
 
 export default class App extends Component{
-  state = {selected: null};
+  state = {
+    list: [],
+    selected: null
+  };
+  async componentDidMount() {
+    const data = await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex`)
+    this.setState({list: data.body.results})
+    console.log(data.body.results)
 
+  }
   render() {
-    // set state of this component to current value of event
     const handleChange = event => {
       this.setState({
         selected: event.target.value
       })
     }
-    const filteredPokemon = mockData.filter(item => {
+    const filteredPokemon = this.state.list.filter(item => {
       if(this.state.selected === true);
       return item.type_1 === this.state.selected;
     })
