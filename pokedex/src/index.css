@@ -4,7 +4,7 @@
 
 body {
   margin: 0;
-  background-color: rgb(181, 204, 203);
+  background-color: rgb(156, 192, 108);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -14,25 +14,36 @@ body {
 
 main {
   height: 100%;
-  margin: 80px;
+  margin: 200px 50px auto 50px;
 }
 
 header {
   text-align: center;
-  color: rgb(16, 85, 16);
+  background-color: rgb(78, 45, 25);
+  padding: 40px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: .8;
 }
 
 header h1 {
-  font-size: 60px;
+  font-size: 80px;
   letter-spacing: .1em;
-}
-
-header h3 {
-  font-style: italic;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin: 0;
+  color: rgb(156,192,107);
 }
 
 .filter {
   text-align: right;
+  position: fixed; 
+  bottom: 80px;
+  right: 80px;
+  font-family: 'Courier New', Courier, monospace;
+  color: rgb(66, 35, 16);
 }
 
 .card-container {
@@ -43,11 +54,14 @@ header h3 {
   padding: 20px;
   text-align: center;
 }
-
+p {
+  font-family: 'Courier New', Courier, monospace;
+  color: rgb(18, 80, 18);
+}
 .card-container h2 {
   text-transform: uppercase;
   color: white;
-  background-color: darkgreen;
+  background-color: rgb(16, 78, 16);
   width: 100%;
   padding: 10px;
 }

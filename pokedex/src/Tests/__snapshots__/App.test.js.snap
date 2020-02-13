@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders App.js correctly 1`] = `
+<div
+  className="body"
+>
+  <header>
+    <h1>
+      Pokemon
+    </h1>
+  </header>
+  <main>
+    <div
+      className="filter"
+    >
+      <label>
+        Filter by type: 
+      </label>
+      <select
+        name="type_1"
+        onChange={[Function]}
+      >
+        <option
+          value="fire"
+        >
+          Fire
+        </option>
+        <option
+          value="grass"
+        >
+          Grass
+        </option>
+        <option
+          value="bug"
+        >
+          Bug
+        </option>
+        <option
+          value="water"
+        >
+          Water
+        </option>
+        <option
+          value="normal"
+        >
+          Normal
+        </option>
+      </select>
+    </div>
+    <ul
+      className="deck-container"
+    />
+  </main>
+</div>
+`;

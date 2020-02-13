@@ -16,13 +16,3 @@ export default class PokeList extends Component {
         )
     }
 }
-
-//   export default class PokeList extends Component{
-//     render() {
-//       return (
-//         <ul className = 'deck-container'>
-//             {this.props.pokedeck.map((item, index) => <PokeItem pokemon={item} key={item.id} />)}
-//         </ul>
-//       )
-//     }
-//   }
