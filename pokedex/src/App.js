@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
 import Header from './Header';
 import PokeList from './PokeList';
-// import data from './Data';
+import pokemon from './data';
 import './App.css';
 import './index.css';
 
 export default class App extends Component{
   render() {
     return (
-      <body>
+      <div className = 'body'>
         <Header />
-        <PokeList />
-      </body>
+        <main>
+          <PokeList pokedeck = {pokemon} />
+        </main>
+      </div>
     );
   }
-}
+} 
