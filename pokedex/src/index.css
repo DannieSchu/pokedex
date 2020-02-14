@@ -37,6 +37,14 @@ header h1 {
   color: rgb(156,192,107);
 }
 
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
 .filter {
   text-align: right;
   position: fixed; 
