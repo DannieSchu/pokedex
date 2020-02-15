@@ -8,7 +8,6 @@ export default class Paging extends Component {
     componentDidMount() {
         // get current page number (call function on constructor) on load and on hashchange
         this.getAndSetPageNum();
-
         window.addEventListener('hashchange', () => this.getAndSetPageNum()
         )
     }
@@ -34,7 +33,7 @@ export default class Paging extends Component {
         // store page number state
         let nextPageNum = this.state.page;
         // get value associated with "page" key from the stringified search params and turn into number
-        const parsedPage = Number(searchParams.get("page"));
+        const parsedPage = Number(searchParams.get('page'));
         // if there is no page number in search params, next page number should be 1 (first page); otherwise, use the value from the query params
         if(isNaN(parsedPage)) {
             nextPageNum = 1;
@@ -53,7 +52,8 @@ export default class Paging extends Component {
         const perPage = 20;
 
         // pokeData should equal this.props
-        const { pokedeck } = this.props; 
+        // CHANGED TO totalResults FROM pokedeck
+        const { totalResults } = this.props; 
         // get rid of the first character of the hash (#)
         const queryString = window.location.hash.slice(1);
         // turn URL into string
@@ -69,19 +69,31 @@ export default class Paging extends Component {
         }
         // if there is nothing in pokeData (i.e., no results), return message
         if(!totalResults) {
-            return <p className = "results">Your search yielded no results.</p>
+            return <p className = 'results'>Your search yielded no results.</p>
         }
 
         // determine the last page with Math.ceil
-        const lastPage = Math.ceil(totalResuls / perPage);
+        const lastPage = Math.ceil(totalResults / perPage);
         
         return (
             // JSX buttons that update the page on click
             <p className = "paging">
-                <button className = "next"/>
-                <button className= "prev">
-                    <span />
-                </button>
+                <button 
+                    className = "prev"
+                    onClick = {() => this.updatePage()}
+                    // disable button on first page
+                    disabled = {nextPageNum === 1 ? true : "" }
+                    type = "button"
+                    />
+                    ◀
+                <span>Page {parsedPage} of {lastPage}</span>
+                <button
+                    className = "next"
+                    onClick = {() => this.updatePage()}
+                    disabled = {nextPageNum === lastPage ? true : "" }
+                    type = "button"
+                    />
+                    ▶
             </p>
         )
 

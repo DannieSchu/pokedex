@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Header from './Header';
 import PokeList from './PokeList';
 import Paging from './Paging';
+import SearchOptions from './SearchOptions.js'
 // import Select from './Select';
 import './index.css';
 
@@ -35,12 +36,13 @@ export default class App extends Component{
     // 1. get data (fetch URL from API) and store in variable
     const data = await this.getPokemon(`https://alchemy-pokedex.herokuapp.com/api/pokedex`);
     // 2. set "search" property of data to variable
-    const searchedPokemon = data.search;
+    // const searchedPokemon = data.results;
     // 3. set "totalResults" property of data to variable
-    const totalResults = data.totalResults;
+    const totalResults = data.results;
+    console.log(data)
     // 4. set initial state of those two properties (setting state here -- essentially in componentDidMount -- means initial rendering happens before the browser updates the screen)
     this.setState({
-      pokeObjects: searchedPokemon,
+      // pokeObjects: searchedPokemon,
       totalResults: totalResults
     })
   }
@@ -69,18 +71,19 @@ export default class App extends Component{
     // })
 
     // render state to be passed as props
-    const { pokeObjects } = this.state;
+    const { pokeObjects, totalResults } = this.state;
 
     return (
       <div className = 'body'>
         <Header />
         <main>
+          <SearchOptions />
           {/* <div className="filter">
             <label>Filter by type: </label>
             <Select handleChangeCallback = {handleChange} />
           </div> */}
             <PokeList pokedeck = {pokeObjects} />
-            <Paging pokedeck = {pokeObjects} />
+            <Paging totalResults = {totalResults} />
         </main>
       </div>
     );

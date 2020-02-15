@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders SearchOptions.js correctly 1`] = `
+<form
+  className="options"
+  onSubmit={[Function]}
+>
+  <label
+    for="search"
+  >
+    Search
+  </label>
+  <p>
+    <input
+      id="search"
+      name="search"
+      onChange={[Function]}
+    />
+  </p>
+  <fieldset>
+    <label>
+      <input
+        checked={false}
+        name="type"
+        onClick={[Function]}
+        type="radio"
+        value="type"
+      />
+      Type
+    </label>
+  </fieldset>
+  <p>
+    <button>
+      Search
+    </button>
+  </p>
+</form>
+`;

@@ -10,46 +10,48 @@ exports[`renders App.js correctly 1`] = `
     </h1>
   </header>
   <main>
-    <div
-      className="filter"
+    <form
+      className="options"
+      onSubmit={[Function]}
     >
-      <label>
-        Filter by type: 
-      </label>
-      <select
-        name="type_1"
-        onChange={[Function]}
+      <label
+        for="search"
       >
-        <option
-          value="fire"
-        >
-          Fire
-        </option>
-        <option
-          value="grass"
-        >
-          Grass
-        </option>
-        <option
-          value="bug"
-        >
-          Bug
-        </option>
-        <option
-          value="water"
-        >
-          Water
-        </option>
-        <option
-          value="normal"
-        >
-          Normal
-        </option>
-      </select>
-    </div>
+        Search
+      </label>
+      <p>
+        <input
+          id="search"
+          name="search"
+          onChange={[Function]}
+        />
+      </p>
+      <fieldset>
+        <label>
+          <input
+            checked={false}
+            name="type"
+            onClick={[Function]}
+            type="radio"
+            value="type"
+          />
+          Type
+        </label>
+      </fieldset>
+      <p>
+        <button>
+          Search
+        </button>
+      </p>
+    </form>
     <ul
       className="deck-container"
     />
+    <p
+      className="results"
+    >
+      Your search yielded no results.
+    </p>
   </main>
 </div>
 `;
