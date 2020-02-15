@@ -1,43 +1,49 @@
 import React, { Component } from 'react';
-import request from 'superagent';
+import { getPokemon } from './GetPokemon';
 import Header from './Header';
 import PokeList from './PokeList';
 import './index.css';
 
 export default class App extends Component{
   state = {
-    list: [],
-    selected: 'fire'
+    pokemonData: [],
   };
-  async componentDidMount() {
-    const data = await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex`)
-    this.setState({list: data.body.results})
-  }
-  render() {
-    const handleChange = event => {
-      this.setState({
-        selected: event.target.value
-      })
-    }
-    const filteredPokemon = this.state.list.filter(item => {
-      if(this.state.selected === true);
-      return item.type_1 === this.state.selected;
+
+  // load data and store props
+  async loadPokemon() {
+    // get data (fetch URL from API) and store in variable
+    const response = await getPokemon(`https://alchemy-pokedex.herokuapp.com/api/pokedex?`);
+    // get results
+    const pokemonData = response.results;
+    // get number of pokemon
+    const pokemonCount = response.count;
+    // set initial state of those two properties (setting state here -- essentially in componentDidMount -- means initial rendering happens before the browser updates the screen)
+    this.setState({
+      pokemonData: pokemonData,
+      pokemonCount: pokemonCount
     })
+  }
+
+  // initialize dom nodes
+  async componentDidMount() {
+    // Load pokemon on page load
+    await this.loadPokemon();
+
+    // Load pokemon on hashchange
+    window.addEventListener('hashchange', async () => {
+        await this.loadPokemon();
+    })
+  }
+
+  render() {
+    const { pokemonData } = this.state;
+    console.log(pokemonData)
+
     return (
       <div className = 'body'>
         <Header />
         <main>
-          <div className="filter">
-            <label>Filter by type: </label>
-            <select name="type_1" onChange={handleChange}>
-              <option value="fire">Fire</option>
-              <option value="grass">Grass</option>
-              <option value="bug">Bug</option>
-              <option value="water">Water</option>
-              <option value="normal">Normal</option>
-            </select>
-            </div>
-            <PokeList pokedeck = {filteredPokemon} />
+            <PokeList pokedeck = {pokemonData} />
         </main>
       </div>
     );
