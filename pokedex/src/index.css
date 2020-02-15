@@ -37,8 +37,8 @@ header h1 {
   color: rgb(156,192,107);
 }
 
-.filter {
-  text-align: right;
+form {
+  /* text-align: right; */
   position: fixed; 
   bottom: 80px;
   right: 80px;

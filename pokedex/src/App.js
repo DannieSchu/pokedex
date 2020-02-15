@@ -3,7 +3,7 @@ import { getPokemon } from './GetPokemon';
 import Header from './Header';
 import PokeList from './PokeList';
 import './index.css';
-
+import SearchOptions from './SearchOptions';
 export default class App extends Component{
   state = {
     pokemonData: [],
@@ -42,6 +42,7 @@ export default class App extends Component{
     return (
       <div className = 'body'>
         <Header />
+        <SearchOptions />
         <main>
             <PokeList pokedeck = {pokemonData} />
         </main>
