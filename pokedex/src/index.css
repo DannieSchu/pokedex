@@ -23,13 +23,12 @@ main {
 }
 
 header {
-  background-color: rgb(18, 80, 18);
+  background-color: rgba(18, 80, 18, .8);
   padding: 40px 60px;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  opacity: .8;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -42,6 +41,7 @@ header h1 {
   text-transform: uppercase;
   font-weight: bold;
   margin: 0;
+  opacity: .7;
   color: rgb(156,192,107);
 }
 
@@ -116,6 +116,11 @@ button.search {
   padding: 10px;
   font-weight: bold;
   font-size: 14px;
+}
+
+button.search:hover {
+  background-color: rgb(131, 177, 113); 
+
 }
 
 button, select {

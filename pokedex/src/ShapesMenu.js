@@ -6,7 +6,7 @@ export default class ShapesMenu extends Component {
             <div className = "shapes-menu">
                 <label>Filter by shape: </label>
                 <select name="shape" input="shapesInput" onChange={this.props.handleChange}>
-                    <option value="all">All Types</option>
+                    <option value="all">All Shapes</option>
                     <option value="armor">Armor</option>
                     <option value="arms">Arms</option>
                     <option value="ball">Blob</option>

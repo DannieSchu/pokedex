@@ -38,7 +38,7 @@ exports[`renders App.js correctly 1`] = `
             <option
               value="all"
             >
-              All Shapes
+              All Types
             </option>
             <option
               value="bug"
@@ -141,7 +141,7 @@ exports[`renders App.js correctly 1`] = `
             <option
               value="all"
             >
-              All Types
+              All Shapes
             </option>
             <option
               value="armor"

@@ -6,7 +6,7 @@ export default class TypesMenu extends Component {
             <div className = "types-menu">
                 <label>Filter by type: </label>
                 <select name="type" input="typesInput" onChange={this.props.handleChange}>
-                    <option value="all">All Shapes</option>
+                    <option value="all">All Types</option>
                     <option value="bug">Bug</option>
                     <option value="dark">Dark</option>
                     <option value="dragon">Dragon</option>
