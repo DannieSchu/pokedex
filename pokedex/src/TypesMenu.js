@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 
-export default class Select extends Component {
+export default class TypesMenu extends Component {
     render() {
         return (
-            <div className = "dropdownMenu">
+            <div className = "types-menu">
                 <label>Filter by type: </label>
-                <select name="type" input="dropdownInput" onChange={this.props.handleChange}>
-                    <option value="all">All Types</option>
+                <select name="type" input="typesInput" onChange={this.props.handleChange}>
+                    <option value="all">All Shapes</option>
                     <option value="bug">Bug</option>
                     <option value="dark">Dark</option>
                     <option value="dragon">Dragon</option>

@@ -19,7 +19,7 @@ main {
 .heading-container {
   display: flex;
   flex-direction: column;
-  align-items: space-around;
+  align-items: space-between;
 }
 
 header {
@@ -52,16 +52,27 @@ form.options {
   letter-spacing: .05em;
   justify-content: space-around;
   align-items: center;
-  width: 25%;
+  width: 26%;
 }
 
 input {
   width: 100%;
+  margin-top: 10px;
+  background-color: rgb(200, 228, 189);
 }
 
 .selection-container {
   display: flex;
   flex-direction: column;
+  align-items: space-between;
+  width: 65%;
+}
+
+.types-menu, .shapes-menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 2px;
 }
 
 .card-container {
@@ -91,25 +102,28 @@ img {
   width: 70%
 }
 
-button.search {
-  border-radius: 5px;
+button {
   background-color: #AC8355; 
   border: none;
+  color: white;
+
+}
+
+button.search {
+  border-radius: 5px;
   height: 50px;
   text-transform: uppercase;
-  padding: 15px;
+  padding: 10px;
   font-weight: bold;
-  color: white;
-  font-size: 14px;;
+  font-size: 14px;
 }
 
 button, select {
   cursor: pointer;
 }
 
-input {
-  margin-top: 10px;
-  background-color: rgb(200, 228, 189);
+select {
+  width: 90px;
 }
 
 .current-page {
@@ -119,9 +133,4 @@ input {
 
 p.results {
   color: white;
-}
-
-button.prev, button.next {
-  background-color: rgb(194, 163, 129); 
-  border: none;
 }
