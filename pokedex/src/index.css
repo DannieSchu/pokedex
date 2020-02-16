@@ -13,19 +13,27 @@ body {
 }
 
 main {
-  height: 100%;
-  margin: 200px 50px auto 50px;
+  margin: 250px 50px auto 50px;
+}
+
+.heading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: space-around;
 }
 
 header {
-  text-align: center;
-  background-color: rgb(78, 45, 25);
-  padding: 40px;
+  background-color: rgb(18, 80, 18);
+  padding: 40px 60px;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   opacity: .8;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 header h1 {
@@ -37,13 +45,23 @@ header h1 {
   color: rgb(156,192,107);
 }
 
-form {
-  /* text-align: right; */
-  position: fixed; 
-  bottom: 80px;
-  right: 80px;
-  font-family: 'Courier New', Courier, monospace;
-  color: rgb(66, 35, 16);
+form.options {
+  display: flex;
+  flex-direction: row;
+  color: white;
+  letter-spacing: .05em;
+  justify-content: space-around;
+  align-items: center;
+  width: 25%;
+}
+
+input {
+  width: 100%;
+}
+
+.selection-container {
+  display: flex;
+  flex-direction: column;
 }
 
 .card-container {
@@ -51,13 +69,16 @@ form {
   margin: 20px;
   background-color: rgb(131, 177, 113); 
   border: 5px solid darkgreen;
-  padding: 20px;
+  padding: 10px;
   text-align: center;
+  width: 280px;
 }
-p {
+
+.card-container p {
   font-family: 'Courier New', Courier, monospace;
   color: rgb(18, 80, 18);
 }
+
 .card-container h2 {
   text-transform: uppercase;
   color: white;
@@ -67,5 +88,40 @@ p {
 }
 
 img {
-  height: 200px;
+  width: 70%
+}
+
+button.search {
+  border-radius: 5px;
+  background-color: #AC8355; 
+  border: none;
+  height: 50px;
+  text-transform: uppercase;
+  padding: 15px;
+  font-weight: bold;
+  color: white;
+  font-size: 14px;;
+}
+
+button, select {
+  cursor: pointer;
+}
+
+input {
+  margin-top: 10px;
+  background-color: rgb(200, 228, 189);
+}
+
+.current-page {
+  padding: 10px;
+  color: white;
+}
+
+p.results {
+  color: white;
+}
+
+button.prev, button.next {
+  background-color: rgb(194, 163, 129); 
+  border: none;
 }

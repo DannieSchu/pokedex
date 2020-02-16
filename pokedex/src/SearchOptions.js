@@ -3,18 +3,19 @@ import Select from './Select.js'
 
 
 export default class SearchOptions extends Component {
-    
     // see if this component has been loaded on parent (e.g., App.js), and if it has, run this code
     async componentDidMount() {
         // get current page number (call function on constructor) on load and on hashchange
         this.updateControls();
         window.addEventListener('hashchange', this.updateControls());
     }
+
     state = {
         searchInput: '',
         dropdownInput: ''
         // checkedRadio: [{name: 'type'}, {name: 'ability'}, {name: 'eggGroup'}]
     }
+
     // use query params to get and update state
     updateControls() {
         // get rid of the first character of the hash (#)
@@ -44,7 +45,6 @@ export default class SearchOptions extends Component {
         searchParams.set('type', formData.get('type'));
         searchParams.set('pokemon', formData.get('search'));
         searchParams.set('page', 1);
-        
         if (searchParams.get('type') === 'all') {
             searchParams.delete('type');
         }
@@ -61,18 +61,23 @@ export default class SearchOptions extends Component {
             }
         return (
             <form className = "options" onSubmit={this.processForm}>
-                <label>Search
-                    <input 
-                        id="search"
-                        name="search"
-                        // update state: searchInput should equal value of textbox
-                        onChange = {event => this.setState({ searchInput: event.target.value })}
-                        // set value of input to the value of the state set above 
-                        value = {this.state.searchInput}
-                        />
-                </label>
-                <button>Search</button>
-                <Select handleChange = {handleChange} />
+                <div className ="selection-container">
+                    <Select handleChange = {handleChange} />
+                    <label>
+                        <input 
+                            id="search"
+                            name="search"
+                            placeholder="Search for your favorite Pokemon"
+                            // update state: searchInput should equal value of textbox
+                            onChange = {event => this.setState({ searchInput: event.target.value })}
+                            // set value of input to the value of the state set above 
+                            value = {this.state.searchInput}
+                            />
+                    </label>
+                </div>
+                <div className ="button-div">
+                    <button className="search">Search</button>
+                </div>
             </form>
         )
     }

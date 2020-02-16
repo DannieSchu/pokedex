@@ -5,7 +5,7 @@ export default class PokeList extends Component {
     render() {
         const mappedPokemon = this.props.pokedeck.map(item => {
             return (
-                <PokeItem pokemon={item} key={item.id} />
+                <PokeItem pokemon={item} key={item.id.toString()} />
             )
         }
         )

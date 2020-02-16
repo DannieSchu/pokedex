@@ -3,10 +3,10 @@ import { getPokemon } from './GetPokemon';
 import Header from './Header';
 import PokeList from './PokeList';
 import './index.css';
-import SearchOptions from './SearchOptions';
+
 export default class App extends Component{
   state = {
-    pokemonData: [],
+    pokedeck: [],
   };
 
   // load data and store props
@@ -19,7 +19,7 @@ export default class App extends Component{
     const pokemonCount = response.count;
     // set initial state of those two properties (setting state here -- essentially in componentDidMount -- means initial rendering happens before the browser updates the screen)
     this.setState({
-      pokemonData: pokemonData,
+      pokedeck: pokemonData,
       pokemonCount: pokemonCount
     })
   }
@@ -36,15 +36,13 @@ export default class App extends Component{
   }
 
   render() {
-    const { pokemonData } = this.state;
-    console.log(pokemonData)
+    const { pokedeck, pokemonCount } = this.state;
 
     return (
       <div className = 'body'>
-        <Header />
-        <SearchOptions />
+        <Header pokemonCount={pokemonCount}/>
         <main>
-            <PokeList pokedeck = {pokemonData} />
+            <PokeList pokedeck = {pokedeck} />
         </main>
       </div>
     );
