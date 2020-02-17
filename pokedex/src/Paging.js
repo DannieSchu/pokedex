@@ -45,8 +45,6 @@ export default class Paging extends Component {
      }
      
      render() {
-          // const { page } = this.state;
-
         // number of pokemon per page
         const perPage = 20;
 
